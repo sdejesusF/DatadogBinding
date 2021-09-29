@@ -1,0 +1,17 @@
+﻿<metadata>
+  <!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+    <remove-node path="/api/package[@name='io.opentracing.util']/class[@name='AutoFinishScopeManager']"></remove-node>
+    <attr path="/api/package[@name='io.opentracing.tag']/class[@name='BooleanTag']/method[@name='set' and count(parameter)=2 and parameter[1][@type='io.opentracing.Span'] and parameter[2][@type='java.lang.Boolean']]/parameter[2][@type='java.lang.Boolean']" name="managedType">Java.Lang.Object</attr> 
+    <attr path="/api/package[@name='io.opentracing.tag']/class[@name='StringTag']/method[@name='set' and count(parameter)=2 and parameter[1][@type='io.opentracing.Span'] and parameter[2][@type='java.lang.String']]/parameter[2][@type='java.lang.String']" name="managedType">Java.Lang.Object</attr> 
+    <attr path="/api/package[@name='io.opentracing.tag']/class[@name='IntTag']/method[@name='set' and count(parameter)=2 and parameter[1][@type='io.opentracing.Span'] and parameter[2][@type='java.lang.Integer']]/parameter[2][@type='java.lang.Integer']" name="managedType">Java.Lang.Object</attr>
+    
+    <remove-node path="/api/package[@name='io.opentracing.tag']/class[@name='BooleanTag']"></remove-node> 
+    <remove-node path="/api/package[@name='io.opentracing.tag']/class[@name='StringTag']"></remove-node> 
+    <remove-node path="/api/package[@name='io.opentracing.tag']/class[@name='IntTag']"></remove-node>
+</metadata>

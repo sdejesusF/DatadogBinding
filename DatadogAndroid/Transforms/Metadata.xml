@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="/api/package[@name='com.datadog.android.rum.model']/class[@name='ErrorEvent.Source']/field[@name='SOURCE']" name="name">SourceEvent</attr>
+    <attr path="/api/package[@name='com.datadog.opentracing']/class[@name='DDSpanContext']/method[@name='getBaggageItems' and count(parameter)=0]" name="propertyName"></attr>
+    <attr path="/api/package[@name='com.datadog.trace.common.sampling']/class[@name='AbstractSampler']/method[@name='doSample' and count(parameter)=1 and parameter[1][@type='com.datadog.opentracing.DDSpan']]" name="visibility">public</attr>
+    <remove-node path="/api/package[@name='com.datadog.android.rum.tracking']/class[@name='NavigationViewTrackingStrategy']"></remove-node>
+</metadata>

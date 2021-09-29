@@ -1,0 +1,11 @@
+framework module Kronos {
+  umbrella header "Kronos-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Kronos.Swift {
+    header "Kronos-Swift.h"
+    requires objc
+}

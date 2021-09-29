@@ -1,0 +1,12 @@
+#DOTNET
+.vs/
+obj/
+packages/
+*.userprefs
+TrueVUE.Cloud/src/TrueVUE.Cloud.Backup.Android/Resources/Resource.designer.cs
+TrueVUE.Cloud/src/TrueVUE.Cloud.AveryDennison.Android/Resources/Resource.designer.cs
+Resource.Designer.cs
+Resource.designer.cs
+**/*.Android/**/[Rr]esource.[Dd]esigner.cs
+*.orig
+*.csproj.user

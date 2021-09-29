@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{F91DA772-B8F2-47E5-BAA5-8F32C3BE1757}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DatadogAndroid/Transforms/Metadata.xml">
+    <Files>
+      <File FileName="AppAndroid/MainActivity.cs" Line="37" Column="1" />
+      <File FileName="AppAndroid/AppAndroid.csproj" Line="1" Column="1" />
+      <File FileName="DatadogAndroid/DatadogAndroid.csproj" Line="1" Column="1" />
+      <File FileName="DatadogAndroid/Transforms/Metadata.xml" Line="6" Column="122" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DatadogBinding" expanded="True">
+            <Node name="AppAndroid" expanded="True">
+              <Node name="References" expanded="True" />
+            </Node>
+            <Node name="AppiOS" expanded="True" />
+            <Node name="DatadogAndroid" expanded="True">
+              <Node name="Transforms" expanded="True">
+                <Node name="Metadata.xml" selected="True" />
+              </Node>
+            </Node>
+            <Node name="KronosAndroid" expanded="True">
+              <Node name="Jars" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.AppAndroid PreferredExecutionTarget="Android.0C021FDD4000KR" />
+  <MonoDevelop.Ide.ItemProperties.OpenTracing PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.ItemProperties.KronosAndroid PreferredExecutionTarget="Android.0C021FDD4000KR" />
+  <MonoDevelop.Ide.ItemProperties.AppiOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.5eab26375c25e71c25194aaa344639439dc43472" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>Kronos/KronosAndroid.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
