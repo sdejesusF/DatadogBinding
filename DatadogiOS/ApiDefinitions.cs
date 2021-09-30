@@ -224,6 +224,9 @@ namespace Datadog
 	[BaseType(typeof(NSObject), Name = "_TtC11DatadogObjc19DDHTTPHeadersWriter")]
 	interface DDHTTPHeadersWriter
 	{
+		// @property (readonly, copy, nonatomic) NSDictionary<NSString *,NSString *> * _Nonnull tracePropagationHTTPHeaders;
+		[Export("tracePropagationHTTPHeaders", ArgumentSemantic.Copy)]
+		NSDictionary<NSString, NSString> TracePropagationHTTPHeaders { get; }
 	}
 
 	// @interface DDLogger : NSObject
@@ -1755,32 +1758,32 @@ namespace Datadog
 		// @required -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName __attribute__((warn_unused_result));
 		[Abstract]
 		[Export("startSpan:")]
-		OTSpan StartSpan(string operationName);
+		IOTSpan StartSpan(string operationName);
 
 		// @required -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName tags:(NSDictionary * _Nullable)tags __attribute__((warn_unused_result));
 		[Abstract]
 		[Export("startSpan:tags:")]
-		OTSpan StartSpan(string operationName, [NullAllowed] NSDictionary tags);
+		IOTSpan StartSpan(string operationName, [NullAllowed] NSDictionary tags);
 
 		// @required -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName childOf:(id<OTSpanContext> _Nullable)parent __attribute__((warn_unused_result));
 		[Abstract]
 		[Export("startSpan:childOf:")]
-		OTSpan StartSpan(string operationName, [NullAllowed] OTSpanContext parent);
+		IOTSpan StartSpan(string operationName, [NullAllowed] IOTSpanContext parent);
 
 		// @required -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName childOf:(id<OTSpanContext> _Nullable)parent tags:(NSDictionary * _Nullable)tags __attribute__((warn_unused_result));
 		[Abstract]
 		[Export("startSpan:childOf:tags:")]
-		OTSpan StartSpan(string operationName, [NullAllowed] OTSpanContext parent, [NullAllowed] NSDictionary tags);
+		IOTSpan StartSpan(string operationName, [NullAllowed] IOTSpanContext parent, [NullAllowed] NSDictionary tags);
 
 		// @required -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName childOf:(id<OTSpanContext> _Nullable)parent tags:(NSDictionary * _Nullable)tags startTime:(NSDate * _Nullable)startTime __attribute__((warn_unused_result));
 		[Abstract]
 		[Export("startSpan:childOf:tags:startTime:")]
-		OTSpan StartSpan(string operationName, [NullAllowed] OTSpanContext parent, [NullAllowed] NSDictionary tags, [NullAllowed] NSDate startTime);
+		IOTSpan StartSpan(string operationName, [NullAllowed] IOTSpanContext parent, [NullAllowed] NSDictionary tags, [NullAllowed] NSDate startTime);
 
 		// @required -(BOOL)inject:(id<OTSpanContext> _Nonnull)spanContext format:(NSString * _Nonnull)format carrier:(id _Nonnull)carrier error:(NSError * _Nullable * _Nullable)error;
 		[Abstract]
 		[Export("inject:format:carrier:error:")]
-		bool Inject(OTSpanContext spanContext, string format, NSObject carrier, [NullAllowed] out NSError error);
+		bool Inject(IOTSpanContext spanContext, string format, NSObject carrier, [NullAllowed] out NSError error);
 
 		// @required -(BOOL)extractWithFormat:(NSString * _Nonnull)format carrier:(id _Nonnull)carrier error:(NSError * _Nullable * _Nullable)error;
 		[Abstract]
@@ -1788,7 +1791,15 @@ namespace Datadog
 		bool ExtractWithFormat(string format, NSObject carrier, [NullAllowed] out NSError error);
 	}
 
+	interface IOTSpanContext
+	{
+	}
+
 	interface IOTTracer
+	{
+	}
+
+	interface IOTSpan
 	{
 	}
 
@@ -1800,7 +1811,7 @@ namespace Datadog
 		// +(id<OTTracer> _Nonnull)initializeWithConfiguration:(DDTracerConfiguration * _Nonnull)configuration __attribute__((deprecated("Use `DDTracer(configuration:)`."))) __attribute__((warn_unused_result));
 		[Static]
 		[Export("initializeWithConfiguration:")]
-		OTTracer InitializeWithConfiguration(DDTracerConfiguration configuration);
+		IOTTracer InitializeWithConfiguration(DDTracerConfiguration configuration);
 
 		// -(instancetype _Nonnull)initWithConfiguration:(DDTracerConfiguration * _Nonnull)configuration;
 		[Export("initWithConfiguration:")]
@@ -1808,27 +1819,27 @@ namespace Datadog
 
 		// -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName __attribute__((warn_unused_result));
 		[Export("startSpan:")]
-		OTSpan StartSpan(string operationName);
+		IOTSpan StartSpan(string operationName);
 
 		// -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName tags:(NSDictionary * _Nullable)tags __attribute__((warn_unused_result));
 		[Export("startSpan:tags:")]
-		OTSpan StartSpan(string operationName, [NullAllowed] NSDictionary tags);
+		IOTSpan StartSpan(string operationName, [NullAllowed] NSDictionary tags);
 
 		// -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName childOf:(id<OTSpanContext> _Nullable)parent __attribute__((warn_unused_result));
 		[Export("startSpan:childOf:")]
-		OTSpan StartSpan(string operationName, [NullAllowed] OTSpanContext parent);
+		IOTSpan StartSpan(string operationName, [NullAllowed] IOTSpanContext parent);
 
 		// -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName childOf:(id<OTSpanContext> _Nullable)parent tags:(NSDictionary * _Nullable)tags __attribute__((warn_unused_result));
 		[Export("startSpan:childOf:tags:")]
-		OTSpan StartSpan(string operationName, [NullAllowed] OTSpanContext parent, [NullAllowed] NSDictionary tags);
+		IOTSpan StartSpan(string operationName, [NullAllowed] IOTSpanContext parent, [NullAllowed] NSDictionary tags);
 
 		// -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName childOf:(id<OTSpanContext> _Nullable)parent tags:(NSDictionary * _Nullable)tags startTime:(NSDate * _Nullable)startTime __attribute__((warn_unused_result));
 		[Export("startSpan:childOf:tags:startTime:")]
-		OTSpan StartSpan(string operationName, [NullAllowed] OTSpanContext parent, [NullAllowed] NSDictionary tags, [NullAllowed] NSDate startTime);
+		IOTSpan StartSpan(string operationName, [NullAllowed] IOTSpanContext parent, [NullAllowed] NSDictionary tags, [NullAllowed] NSDate startTime);
 
 		// -(BOOL)inject:(id<OTSpanContext> _Nonnull)spanContext format:(NSString * _Nonnull)format carrier:(id _Nonnull)carrier error:(NSError * _Nullable * _Nullable)error;
 		[Export("inject:format:carrier:error:")]
-		bool Inject(OTSpanContext spanContext, string format, NSObject carrier, [NullAllowed] out NSError error);
+		bool Inject(IOTSpanContext spanContext, string format, NSObject carrier, [NullAllowed] out NSError error);
 
 		// -(BOOL)extractWithFormat:(NSString * _Nonnull)format carrier:(id _Nonnull)carrier error:(NSError * _Nullable * _Nullable)error;
 		[Export("extractWithFormat:carrier:error:")]
@@ -1957,12 +1968,12 @@ namespace Datadog
 		// @required @property (readonly, nonatomic, strong) id<OTSpanContext> _Nonnull context;
 		[Abstract]
 		[Export("context", ArgumentSemantic.Strong)]
-		OTSpanContext Context { get; }
+		IOTSpanContext Context { get; }
 
 		// @required @property (readonly, nonatomic, strong) id<OTTracer> _Nonnull tracer;
 		[Abstract]
 		[Export("tracer", ArgumentSemantic.Strong)]
-		OTTracer Tracer { get; }
+		IOTTracer Tracer { get; }
 
 		// @required -(void)setOperationName:(NSString * _Nonnull)operationName;
 		[Abstract]
@@ -1997,7 +2008,7 @@ namespace Datadog
 		// @required -(id<OTSpan> _Nonnull)setBaggageItem:(NSString * _Nonnull)key value:(NSString * _Nonnull)value __attribute__((warn_unused_result));
 		[Abstract]
 		[Export("setBaggageItem:value:")]
-		OTSpan SetBaggageItem(string key, string value);
+		IOTSpan SetBaggageItem(string key, string value);
 
 		// @required -(NSString * _Nullable)getBaggageItem:(NSString * _Nonnull)key __attribute__((warn_unused_result));
 		[Abstract]
@@ -2028,7 +2039,7 @@ namespace Datadog
 		// @required -(id<OTSpan> _Nonnull)setActive;
 		[Abstract]
 		[Export("setActive")]
-		OTSpan SetActive { get; }
+		IOTSpan SetActive { get; }
 	}
 
 	// @protocol OTSpanContext
