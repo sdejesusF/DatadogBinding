@@ -1,6 +1,7 @@
 #DOTNET
 .vs/
 obj/
+bin/
 packages/
 *.userprefs
 TrueVUE.Cloud/src/TrueVUE.Cloud.Backup.Android/Resources/Resource.designer.cs

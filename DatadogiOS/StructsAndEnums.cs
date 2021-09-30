@@ -130,7 +130,8 @@ namespace Datadog
 		Source = 0,
 		Network = 1,
 		Webview = 2,
-		Custom = 3
+		Console = 3,
+		Custom = 4
 	}
 
 	[Native]

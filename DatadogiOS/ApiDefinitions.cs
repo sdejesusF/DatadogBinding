@@ -169,19 +169,39 @@ namespace Datadog
 	[DisableDefaultCtor]
 	interface DDEndpoint
 	{
+		// +(DDEndpoint * _Nonnull)us1 __attribute__((warn_unused_result));
+		[Static]
+		[Export ("us1")]
+		DDEndpoint Us1 { get; }
+
+		// +(DDEndpoint * _Nonnull)us3 __attribute__((warn_unused_result));
+		[Static]
+		[Export ("us3")]
+		DDEndpoint Us3 { get; }
+
+		// +(DDEndpoint * _Nonnull)eu1 __attribute__((warn_unused_result));
+		[Static]
+		[Export ("eu1")]
+		DDEndpoint Eu1 { get; }
+
+		// +(DDEndpoint * _Nonnull)us1_fed __attribute__((warn_unused_result));
+		[Static]
+		[Export ("us1_fed")]
+		DDEndpoint Us1_fed { get; }
+
 		// +(DDEndpoint * _Nonnull)eu __attribute__((warn_unused_result));
 		[Static]
-		[Export("eu")]
+		[Export ("eu")]
 		DDEndpoint Eu { get; }
 
 		// +(DDEndpoint * _Nonnull)us __attribute__((warn_unused_result));
 		[Static]
-		[Export("us")]
+		[Export ("us")]
 		DDEndpoint Us { get; }
 
 		// +(DDEndpoint * _Nonnull)gov __attribute__((warn_unused_result));
 		[Static]
-		[Export("gov")]
+		[Export ("gov")]
 		DDEndpoint Gov { get; }
 	}
 
@@ -348,35 +368,89 @@ namespace Datadog
 	[DisableDefaultCtor]
 	interface DDLogsEndpoint
 	{
+		// +(DDLogsEndpoint * _Nonnull)us1 __attribute__((warn_unused_result));
+		[Static]
+		[Export ("us1")]
+		DDLogsEndpoint Us1 { get; }
+
+		// +(DDLogsEndpoint * _Nonnull)us3 __attribute__((warn_unused_result));
+		[Static]
+		[Export ("us3")]
+		DDLogsEndpoint Us3 { get; }
+
+		// +(DDLogsEndpoint * _Nonnull)eu1 __attribute__((warn_unused_result));
+		[Static]
+		[Export ("eu1")]
+		DDLogsEndpoint Eu1 { get; }
+
+		// +(DDLogsEndpoint * _Nonnull)us1_fed __attribute__((warn_unused_result));
+		[Static]
+		[Export ("us1_fed")]
+		DDLogsEndpoint Us1_fed { get; }
+
 		// +(DDLogsEndpoint * _Nonnull)eu __attribute__((warn_unused_result));
 		[Static]
-		[Export("eu")]
+		[Export ("eu")]
 		DDLogsEndpoint Eu { get; }
 
 		// +(DDLogsEndpoint * _Nonnull)us __attribute__((warn_unused_result));
 		[Static]
-		[Export("us")]
+		[Export ("us")]
 		DDLogsEndpoint Us { get; }
 
 		// +(DDLogsEndpoint * _Nonnull)gov __attribute__((warn_unused_result));
 		[Static]
-		[Export("gov")]
+		[Export ("gov")]
 		DDLogsEndpoint Gov { get; }
 
 		// +(DDLogsEndpoint * _Nonnull)customWithUrl:(NSString * _Nonnull)url __attribute__((warn_unused_result));
 		[Static]
-		[Export("customWithUrl:")]
-		DDLogsEndpoint CustomWithUrl(string url);
+		[Export ("customWithUrl:")]
+		DDLogsEndpoint CustomWithUrl (string url);
 	}
 
 	// @interface DDNSURLSessionDelegate
 	[BaseType(typeof(NSObject), Name = "_TtC11DatadogObjc22DDNSURLSessionDelegate")]
 	interface DDNSURLSessionDelegate
 	{
-		// -(instancetype _Nonnull)initWithAdditionalFirstPartyHosts:(NSSet<NSString *> * _Nonnull)additionalFirstPartyHosts __attribute__((objc_designated_initializer));
-		[Export("initWithAdditionalFirstPartyHosts:")]
+		// [Wrap ("WeakDdURLSessionDelegate")]
+		// DDURLSessionDelegate DdURLSessionDelegate { get; }
+
+		// @property (readonly, nonatomic, strong) DDURLSessionDelegate * _Nonnull ddURLSessionDelegate;
+		[NullAllowed, Export ("ddURLSessionDelegate", ArgumentSemantic.Strong)]
+		NSObject WeakDdURLSessionDelegate { get; }
+
+		// -(instancetype _Nonnull)initWithAdditionalFirstPartyHosts:(id)additionalFirstPartyHosts __attribute__((objc_designated_initializer));
+		[Export ("initWithAdditionalFirstPartyHosts:")]
 		[DesignatedInitializer]
-		IntPtr Constructor(NSSet<NSString> additionalFirstPartyHosts);
+		IntPtr Constructor (NSObject additionalFirstPartyHosts);
+
+		// -(void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didCompleteWithError:(NSError * _Nullable)error;
+		[Export ("URLSession:task:didCompleteWithError:")]
+		void URLSession (NSUrlSession session, NSUrlSessionTask task, [NullAllowed] NSError error);
+
+		// -(void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didFinishCollectingMetrics:(NSURLSessionTaskMetrics * _Nonnull)metrics;
+		[Export ("URLSession:task:didFinishCollectingMetrics:")]
+		void URLSession (NSUrlSession session, NSUrlSessionTask task, NSUrlSessionTaskMetrics metrics);
+
+		// -(void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask didReceiveData:(id)data;
+		[Export ("URLSession:dataTask:didReceiveData:")]
+		void URLSession (NSUrlSession session, NSUrlSessionDataTask dataTask, NSObject data);
+	}
+
+	// @interface DDRUMAction : NSObject
+	[BaseType(typeof(NSObject), Name = "_TtC11DatadogObjc11DDRUMAction")]
+	[DisableDefaultCtor]
+	interface DDRUMAction
+	{
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull name;
+		[Export ("name")]
+		string Name { get; }
+
+		// -(instancetype _Nonnull)initWithName:(NSString * _Nonnull)name attributes:(id)attributes __attribute__((objc_designated_initializer));
+		[Export ("initWithName:attributes:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (string name, NSObject attributes);
 	}
 
 	// @interface DDRUMActionEvent : NSObject
@@ -565,6 +639,13 @@ namespace Datadog
 		string Technology { get; }
 	}
 
+	// @interface DDRUMActionEventRUMEventAttributes : NSObject
+	[BaseType(typeof(NSObject), Name = "_TtC11DatadogObjc34DDRUMActionEventRUMEventAttributes")]
+	[DisableDefaultCtor]
+	interface DDRUMActionEventRUMEventAttributes
+	{
+	}
+
 	// @interface DDRUMActionEventRUMUser : NSObject
 	[BaseType(typeof(NSObject), Name = "_TtC11DatadogObjc23DDRUMActionEventRUMUser")]
 	[DisableDefaultCtor]
@@ -607,15 +688,23 @@ namespace Datadog
 	interface DDRUMActionEventView
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull id;
-		[Export("id")]
+		[Export ("id")]
 		string Id { get; }
 
+		// @property (readonly, nonatomic, strong) NSNumber * _Nullable inForeground;
+		[NullAllowed, Export ("inForeground", ArgumentSemantic.Strong)]
+		NSNumber InForeground { get; }
+
+		// @property (copy, nonatomic) NSString * _Nullable name;
+		[NullAllowed, Export ("name")]
+		string Name { get; set; }
+
 		// @property (copy, nonatomic) NSString * _Nullable referrer;
-		[NullAllowed, Export("referrer")]
+		[NullAllowed, Export ("referrer")]
 		string Referrer { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nonnull url;
-		[Export("url")]
+		[Export ("url")]
 		string Url { get; set; }
 	}
 
@@ -639,6 +728,10 @@ namespace Datadog
 		// @property (readonly, nonatomic, strong) DDRUMErrorEventRUMConnectivity * _Nullable connectivity;
 		[NullAllowed, Export("connectivity", ArgumentSemantic.Strong)]
 		DDRUMErrorEventRUMConnectivity Connectivity { get; }
+
+		// @property (readonly, nonatomic, strong) DDRUMErrorEventRUMEventAttributes * _Nullable context;
+		[NullAllowed, Export ("context", ArgumentSemantic.Strong)]
+		DDRUMErrorEventRUMEventAttributes Context { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nonnull date;
 		[Export("date", ArgumentSemantic.Strong)]
@@ -704,6 +797,10 @@ namespace Datadog
 	[DisableDefaultCtor]
 	interface DDRUMErrorEventError
 	{
+		// @property (readonly, copy, nonatomic) NSString * _Nullable id;
+		[NullAllowed, Export ("id")]
+		string Id { get; }
+
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable isCrash;
 		[NullAllowed, Export("isCrash", ArgumentSemantic.Strong)]
 		NSNumber IsCrash { get; }
@@ -801,6 +898,13 @@ namespace Datadog
 		string Technology { get; }
 	}
 
+	// @interface DDRUMErrorEventRUMEventAttributes : NSObject
+	[BaseType(typeof(NSObject), Name = "_TtC11DatadogObjc33DDRUMErrorEventRUMEventAttributes")]
+	[DisableDefaultCtor]
+	interface DDRUMErrorEventRUMEventAttributes
+	{
+	}
+
 	// @interface DDRUMErrorEventRUMUser : NSObject
 	[BaseType(typeof(NSObject), Name = "_TtC11DatadogObjc22DDRUMErrorEventRUMUser")]
 	[DisableDefaultCtor]
@@ -843,15 +947,23 @@ namespace Datadog
 	interface DDRUMErrorEventView
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull id;
-		[Export("id")]
+		[Export ("id")]
 		string Id { get; }
 
+		// @property (readonly, nonatomic, strong) NSNumber * _Nullable inForeground;
+		[NullAllowed, Export ("inForeground", ArgumentSemantic.Strong)]
+		NSNumber InForeground { get; }
+
+		// @property (copy, nonatomic) NSString * _Nullable name;
+		[NullAllowed, Export ("name")]
+		string Name { get; set; }
+
 		// @property (copy, nonatomic) NSString * _Nullable referrer;
-		[NullAllowed, Export("referrer")]
+		[NullAllowed, Export ("referrer")]
 		string Referrer { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nonnull url;
-		[Export("url")]
+		[Export ("url")]
 		string Url { get; set; }
 	}
 
@@ -859,85 +971,85 @@ namespace Datadog
 	[BaseType(typeof(NSObject), Name = "_TtC11DatadogObjc12DDRUMMonitor")]
 	interface DDRUMMonitor
 	{
-		// -(void)startViewWithViewController:(UIViewController * _Nonnull)viewController path:(NSString * _Nullable)path attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("startViewWithViewController:path:attributes:")]
-		void StartViewWithViewController(UIViewController viewController, [NullAllowed] string path, NSDictionary<NSString, NSObject> attributes);
+		// -(void)startViewWithViewController:(UIViewController * _Nonnull)viewController name:(NSString * _Nullable)name attributes:(id)attributes;
+		[Export ("startViewWithViewController:name:attributes:")]
+		void StartViewWithViewController (UIViewController viewController, [NullAllowed] string name, NSObject attributes);
 
-		// -(void)stopViewWithViewController:(UIViewController * _Nonnull)viewController attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("stopViewWithViewController:attributes:")]
-		void StopViewWithViewController(UIViewController viewController, NSDictionary<NSString, NSObject> attributes);
+		// -(void)stopViewWithViewController:(UIViewController * _Nonnull)viewController attributes:(id)attributes;
+		[Export ("stopViewWithViewController:attributes:")]
+		void StopViewWithViewController (UIViewController viewController, NSObject attributes);
 
-		// -(void)startViewWithKey:(NSString * _Nonnull)key path:(NSString * _Nullable)path attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("startViewWithKey:path:attributes:")]
-		void StartViewWithKey(string key, [NullAllowed] string path, NSDictionary<NSString, NSObject> attributes);
+		// -(void)startViewWithKey:(NSString * _Nonnull)key name:(NSString * _Nullable)name attributes:(id)attributes;
+		[Export ("startViewWithKey:name:attributes:")]
+		void StartViewWithKey (string key, [NullAllowed] string name, NSObject attributes);
 
-		// -(void)stopViewWithKey:(NSString * _Nonnull)key attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("stopViewWithKey:attributes:")]
-		void StopViewWithKey(string key, NSDictionary<NSString, NSObject> attributes);
+		// -(void)stopViewWithKey:(NSString * _Nonnull)key attributes:(id)attributes;
+		[Export ("stopViewWithKey:attributes:")]
+		void StopViewWithKey (string key, NSObject attributes);
 
 		// -(void)addTimingWithName:(NSString * _Nonnull)name;
-		[Export("addTimingWithName:")]
-		void AddTimingWithName(string name);
+		[Export ("addTimingWithName:")]
+		void AddTimingWithName (string name);
 
-		// -(void)addErrorWithMessage:(NSString * _Nonnull)message source:(enum DDRUMErrorSource)source stack:(NSString * _Nullable)stack attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("addErrorWithMessage:source:stack:attributes:")]
-		void AddErrorWithMessage(string message, DDRUMErrorSource source, [NullAllowed] string stack, NSDictionary<NSString, NSObject> attributes);
+		// -(void)addErrorWithMessage:(NSString * _Nonnull)message source:(enum DDRUMErrorSource)source stack:(NSString * _Nullable)stack attributes:(id)attributes;
+		[Export ("addErrorWithMessage:source:stack:attributes:")]
+		void AddErrorWithMessage (string message, DDRUMErrorSource source, [NullAllowed] string stack, NSObject attributes);
 
-		// -(void)addErrorWithError:(NSError * _Nonnull)error source:(enum DDRUMErrorSource)source attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("addErrorWithError:source:attributes:")]
-		void AddErrorWithError(NSError error, DDRUMErrorSource source, NSDictionary<NSString, NSObject> attributes);
+		// -(void)addErrorWithError:(NSError * _Nonnull)error source:(enum DDRUMErrorSource)source attributes:(id)attributes;
+		[Export ("addErrorWithError:source:attributes:")]
+		void AddErrorWithError (NSError error, DDRUMErrorSource source, NSObject attributes);
 
-		// -(void)startResourceLoadingWithResourceKey:(NSString * _Nonnull)resourceKey request:(NSURLRequest * _Nonnull)request attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("startResourceLoadingWithResourceKey:request:attributes:")]
-		void StartResourceLoadingWithResourceKey(string resourceKey, NSUrlRequest request, NSDictionary<NSString, NSObject> attributes);
+		// -(void)startResourceLoadingWithResourceKey:(NSString * _Nonnull)resourceKey request:(id)request attributes:(id)attributes;
+		[Export ("startResourceLoadingWithResourceKey:request:attributes:")]
+		void StartResourceLoadingWithResourceKey (string resourceKey, NSObject request, NSObject attributes);
 
-		// -(void)startResourceLoadingWithResourceKey:(NSString * _Nonnull)resourceKey url:(NSURL * _Nonnull)url attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("startResourceLoadingWithResourceKey:url:attributes:")]
-		void StartResourceLoadingWithResourceKey(string resourceKey, NSUrl url, NSDictionary<NSString, NSObject> attributes);
+		// -(void)startResourceLoadingWithResourceKey:(NSString * _Nonnull)resourceKey url:(id)url attributes:(id)attributes;
+		//[Export ("startResourceLoadingWithResourceKey:url:attributes:")]
+		//void StartResourceLoadingWithResourceKey (string resourceKey, NSObject url, NSObject attributes);
 
-		// -(void)startResourceLoadingWithResourceKey:(NSString * _Nonnull)resourceKey httpMethod:(enum DDRUMMethod)httpMethod urlString:(NSString * _Nonnull)urlString attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("startResourceLoadingWithResourceKey:httpMethod:urlString:attributes:")]
-		void StartResourceLoadingWithResourceKey(string resourceKey, DDRUMMethod httpMethod, string urlString, NSDictionary<NSString, NSObject> attributes);
+		// -(void)startResourceLoadingWithResourceKey:(NSString * _Nonnull)resourceKey httpMethod:(enum DDRUMMethod)httpMethod urlString:(NSString * _Nonnull)urlString attributes:(id)attributes;
+		[Export ("startResourceLoadingWithResourceKey:httpMethod:urlString:attributes:")]
+		void StartResourceLoadingWithResourceKey (string resourceKey, DDRUMMethod httpMethod, string urlString, NSObject attributes);
 
-		// -(void)addResourceMetricsWithResourceKey:(NSString * _Nonnull)resourceKey metrics:(NSURLSessionTaskMetrics * _Nonnull)metrics attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("addResourceMetricsWithResourceKey:metrics:attributes:")]
-		void AddResourceMetricsWithResourceKey(string resourceKey, NSUrlSessionTaskMetrics metrics, NSDictionary<NSString, NSObject> attributes);
+		// -(void)addResourceMetricsWithResourceKey:(NSString * _Nonnull)resourceKey metrics:(NSURLSessionTaskMetrics * _Nonnull)metrics attributes:(id)attributes;
+		[Export ("addResourceMetricsWithResourceKey:metrics:attributes:")]
+		void AddResourceMetricsWithResourceKey (string resourceKey, NSUrlSessionTaskMetrics metrics, NSObject attributes);
 
-		// -(void)stopResourceLoadingWithResourceKey:(NSString * _Nonnull)resourceKey response:(NSURLResponse * _Nonnull)response size:(NSNumber * _Nullable)size attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("stopResourceLoadingWithResourceKey:response:size:attributes:")]
-		void StopResourceLoadingWithResourceKey(string resourceKey, NSUrlResponse response, [NullAllowed] NSNumber size, NSDictionary<NSString, NSObject> attributes);
+		// -(void)stopResourceLoadingWithResourceKey:(NSString * _Nonnull)resourceKey response:(NSURLResponse * _Nonnull)response size:(NSNumber * _Nullable)size attributes:(id)attributes;
+		[Export ("stopResourceLoadingWithResourceKey:response:size:attributes:")]
+		void StopResourceLoadingWithResourceKey (string resourceKey, NSUrlResponse response, [NullAllowed] NSNumber size, NSObject attributes);
 
-		// -(void)stopResourceLoadingWithResourceKey:(NSString * _Nonnull)resourceKey statusCode:(NSNumber * _Nullable)statusCode kind:(enum DDRUMResourceType)kind size:(NSNumber * _Nullable)size attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("stopResourceLoadingWithResourceKey:statusCode:kind:size:attributes:")]
-		void StopResourceLoadingWithResourceKey(string resourceKey, [NullAllowed] NSNumber statusCode, DDRUMResourceType kind, [NullAllowed] NSNumber size, NSDictionary<NSString, NSObject> attributes);
+		// -(void)stopResourceLoadingWithResourceKey:(NSString * _Nonnull)resourceKey statusCode:(NSNumber * _Nullable)statusCode kind:(enum DDRUMResourceType)kind size:(NSNumber * _Nullable)size attributes:(id)attributes;
+		[Export ("stopResourceLoadingWithResourceKey:statusCode:kind:size:attributes:")]
+		void StopResourceLoadingWithResourceKey (string resourceKey, [NullAllowed] NSNumber statusCode, DDRUMResourceType kind, [NullAllowed] NSNumber size, NSObject attributes);
 
-		// -(void)stopResourceLoadingWithErrorWithResourceKey:(NSString * _Nonnull)resourceKey error:(NSError * _Nonnull)error response:(NSURLResponse * _Nullable)response attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("stopResourceLoadingWithErrorWithResourceKey:error:response:attributes:")]
-		void StopResourceLoadingWithErrorWithResourceKey(string resourceKey, NSError error, [NullAllowed] NSUrlResponse response, NSDictionary<NSString, NSObject> attributes);
+		// -(void)stopResourceLoadingWithErrorWithResourceKey:(NSString * _Nonnull)resourceKey error:(NSError * _Nonnull)error response:(NSURLResponse * _Nullable)response attributes:(id)attributes;
+		[Export ("stopResourceLoadingWithErrorWithResourceKey:error:response:attributes:")]
+		void StopResourceLoadingWithErrorWithResourceKey (string resourceKey, NSError error, [NullAllowed] NSUrlResponse response, NSObject attributes);
 
-		// -(void)stopResourceLoadingWithErrorWithResourceKey:(NSString * _Nonnull)resourceKey errorMessage:(NSString * _Nonnull)errorMessage response:(NSURLResponse * _Nullable)response attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("stopResourceLoadingWithErrorWithResourceKey:errorMessage:response:attributes:")]
-		void StopResourceLoadingWithErrorWithResourceKey(string resourceKey, string errorMessage, [NullAllowed] NSUrlResponse response, NSDictionary<NSString, NSObject> attributes);
+		// -(void)stopResourceLoadingWithErrorWithResourceKey:(NSString * _Nonnull)resourceKey errorMessage:(NSString * _Nonnull)errorMessage response:(NSURLResponse * _Nullable)response attributes:(id)attributes;
+		[Export ("stopResourceLoadingWithErrorWithResourceKey:errorMessage:response:attributes:")]
+		void StopResourceLoadingWithErrorWithResourceKey (string resourceKey, string errorMessage, [NullAllowed] NSUrlResponse response, NSObject attributes);
 
-		// -(void)startUserActionWithType:(enum DDRUMUserActionType)type name:(NSString * _Nonnull)name attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("startUserActionWithType:name:attributes:")]
-		void StartUserActionWithType(DDRUMUserActionType type, string name, NSDictionary<NSString, NSObject> attributes);
+		// -(void)startUserActionWithType:(enum DDRUMUserActionType)type name:(NSString * _Nonnull)name attributes:(id)attributes;
+		[Export ("startUserActionWithType:name:attributes:")]
+		void StartUserActionWithType (DDRUMUserActionType type, string name, NSObject attributes);
 
-		// -(void)stopUserActionWithType:(enum DDRUMUserActionType)type name:(NSString * _Nullable)name attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("stopUserActionWithType:name:attributes:")]
-		void StopUserActionWithType(DDRUMUserActionType type, [NullAllowed] string name, NSDictionary<NSString, NSObject> attributes);
+		// -(void)stopUserActionWithType:(enum DDRUMUserActionType)type name:(NSString * _Nullable)name attributes:(id)attributes;
+		[Export ("stopUserActionWithType:name:attributes:")]
+		void StopUserActionWithType (DDRUMUserActionType type, [NullAllowed] string name, NSObject attributes);
 
-		// -(void)addUserActionWithType:(enum DDRUMUserActionType)type name:(NSString * _Nonnull)name attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
-		[Export("addUserActionWithType:name:attributes:")]
-		void AddUserActionWithType(DDRUMUserActionType type, string name, NSDictionary<NSString, NSObject> attributes);
+		// -(void)addUserActionWithType:(enum DDRUMUserActionType)type name:(NSString * _Nonnull)name attributes:(id)attributes;
+		[Export ("addUserActionWithType:name:attributes:")]
+		void AddUserActionWithType (DDRUMUserActionType type, string name, NSObject attributes);
 
 		// -(void)addAttributeForKey:(NSString * _Nonnull)key value:(id _Nonnull)value;
-		[Export("addAttributeForKey:value:")]
-		void AddAttributeForKey(string key, NSObject value);
+		[Export ("addAttributeForKey:value:")]
+		void AddAttributeForKey (string key, NSObject value);
 
 		// -(void)removeAttributeForKey:(NSString * _Nonnull)key;
-		[Export("removeAttributeForKey:")]
-		void RemoveAttributeForKey(string key);
+		[Export ("removeAttributeForKey:")]
+		void RemoveAttributeForKey (string key);
 	}
 
 	// @interface DDRUMResourceEvent : NSObject
@@ -946,47 +1058,51 @@ namespace Datadog
 	interface DDRUMResourceEvent
 	{
 		// @property (readonly, nonatomic, strong) DDRUMResourceEventDD * _Nonnull dd;
-		[Export("dd", ArgumentSemantic.Strong)]
+		[Export ("dd", ArgumentSemantic.Strong)]
 		DDRUMResourceEventDD Dd { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMResourceEventAction * _Nullable action;
-		[NullAllowed, Export("action", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("action", ArgumentSemantic.Strong)]
 		DDRUMResourceEventAction Action { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMResourceEventApplication * _Nonnull application;
-		[Export("application", ArgumentSemantic.Strong)]
+		[Export ("application", ArgumentSemantic.Strong)]
 		DDRUMResourceEventApplication Application { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMResourceEventRUMConnectivity * _Nullable connectivity;
-		[NullAllowed, Export("connectivity", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("connectivity", ArgumentSemantic.Strong)]
 		DDRUMResourceEventRUMConnectivity Connectivity { get; }
 
+		// @property (readonly, nonatomic, strong) DDRUMResourceEventRUMEventAttributes * _Nullable context;
+		[NullAllowed, Export ("context", ArgumentSemantic.Strong)]
+		DDRUMResourceEventRUMEventAttributes Context { get; }
+
 		// @property (readonly, nonatomic, strong) NSNumber * _Nonnull date;
-		[Export("date", ArgumentSemantic.Strong)]
+		[Export ("date", ArgumentSemantic.Strong)]
 		NSNumber Date { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMResourceEventResource * _Nonnull resource;
-		[Export("resource", ArgumentSemantic.Strong)]
+		[Export ("resource", ArgumentSemantic.Strong)]
 		DDRUMResourceEventResource Resource { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nullable service;
-		[NullAllowed, Export("service")]
+		[NullAllowed, Export ("service")]
 		string Service { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMResourceEventSession * _Nonnull session;
-		[Export("session", ArgumentSemantic.Strong)]
+		[Export ("session", ArgumentSemantic.Strong)]
 		DDRUMResourceEventSession Session { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull type;
-		[Export("type")]
+		[Export ("type")]
 		string Type { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMResourceEventRUMUser * _Nullable usr;
-		[NullAllowed, Export("usr", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("usr", ArgumentSemantic.Strong)]
 		DDRUMResourceEventRUMUser Usr { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMResourceEventView * _Nonnull view;
-		[Export("view", ArgumentSemantic.Strong)]
+		[Export ("view", ArgumentSemantic.Strong)]
 		DDRUMResourceEventView View { get; }
 	}
 
@@ -1058,6 +1174,13 @@ namespace Datadog
 		// @property (readonly, copy, nonatomic) NSString * _Nullable technology;
 		[NullAllowed, Export("technology")]
 		string Technology { get; }
+	}
+
+	// @interface DDRUMResourceEventRUMEventAttributes : NSObject
+	[BaseType(typeof(NSObject), Name = "_TtC11DatadogObjc34DDRUMActionEventRUMEventAttributes")]
+	[DisableDefaultCtor]
+	interface DDRUMResourceEventRUMEventAttributes
+	{
 	}
 
 	// @interface DDRUMResourceEventRUMUser : NSObject
@@ -1266,15 +1389,19 @@ namespace Datadog
 	interface DDRUMResourceEventView
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull id;
-		[Export("id")]
+		[Export ("id")]
 		string Id { get; }
 
+		// @property (copy, nonatomic) NSString * _Nullable name;
+		[NullAllowed, Export ("name")]
+		string Name { get; set; }
+
 		// @property (copy, nonatomic) NSString * _Nullable referrer;
-		[NullAllowed, Export("referrer")]
+		[NullAllowed, Export ("referrer")]
 		string Referrer { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nonnull url;
-		[Export("url")]
+		[Export ("url")]
 		string Url { get; set; }
 	}
 
@@ -1283,18 +1410,14 @@ namespace Datadog
 	[DisableDefaultCtor]
 	interface DDRUMView
 	{
-		// @property (readonly, copy, nonatomic) NSString * _Nonnull path;
-		[Export("path")]
-		string Path { get; }
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull name;
+		[Export ("name")]
+		string Name { get; }
 
-		// @property (readonly, copy, nonatomic) NSDictionary<NSString *,id> * _Nonnull attributes;
-		[Export("attributes", ArgumentSemantic.Copy)]
-		NSDictionary<NSString, NSObject> Attributes { get; }
-
-		// -(instancetype _Nonnull)initWithPath:(NSString * _Nonnull)path attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes __attribute__((objc_designated_initializer));
-		[Export("initWithPath:attributes:")]
+		// -(instancetype _Nonnull)initWithName:(NSString * _Nonnull)name attributes:(id)attributes __attribute__((objc_designated_initializer));
+		[Export ("initWithName:attributes:")]
 		[DesignatedInitializer]
-		IntPtr Constructor(string path, NSDictionary<NSString, NSObject> attributes);
+		IntPtr Constructor (string name, NSObject attributes);
 	}
 
 	// @interface DDRUMViewEvent : NSObject
@@ -1303,39 +1426,43 @@ namespace Datadog
 	interface DDRUMViewEvent
 	{
 		// @property (readonly, nonatomic, strong) DDRUMViewEventDD * _Nonnull dd;
-		[Export("dd", ArgumentSemantic.Strong)]
+		[Export ("dd", ArgumentSemantic.Strong)]
 		DDRUMViewEventDD Dd { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMViewEventApplication * _Nonnull application;
-		[Export("application", ArgumentSemantic.Strong)]
+		[Export ("application", ArgumentSemantic.Strong)]
 		DDRUMViewEventApplication Application { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMViewEventRUMConnectivity * _Nullable connectivity;
-		[NullAllowed, Export("connectivity", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("connectivity", ArgumentSemantic.Strong)]
 		DDRUMViewEventRUMConnectivity Connectivity { get; }
 
+		// @property (readonly, nonatomic, strong) DDRUMViewEventRUMEventAttributes * _Nullable context;
+		[NullAllowed, Export ("context", ArgumentSemantic.Strong)]
+		DDRUMViewEventRUMEventAttributes Context { get; }
+
 		// @property (readonly, nonatomic, strong) NSNumber * _Nonnull date;
-		[Export("date", ArgumentSemantic.Strong)]
+		[Export ("date", ArgumentSemantic.Strong)]
 		NSNumber Date { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nullable service;
-		[NullAllowed, Export("service")]
+		[NullAllowed, Export ("service")]
 		string Service { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMViewEventSession * _Nonnull session;
-		[Export("session", ArgumentSemantic.Strong)]
+		[Export ("session", ArgumentSemantic.Strong)]
 		DDRUMViewEventSession Session { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull type;
-		[Export("type")]
+		[Export ("type")]
 		string Type { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMViewEventRUMUser * _Nullable usr;
-		[NullAllowed, Export("usr", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("usr", ArgumentSemantic.Strong)]
 		DDRUMViewEventRUMUser Usr { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMViewEventView * _Nonnull view;
-		[Export("view", ArgumentSemantic.Strong)]
+		[Export ("view", ArgumentSemantic.Strong)]
 		DDRUMViewEventView View { get; }
 	}
 
@@ -1395,6 +1522,13 @@ namespace Datadog
 		string Technology { get; }
 	}
 
+	// @interface DDRUMViewEventRUMEventAttributes : NSObject
+	[BaseType(typeof(NSObject), Name = "_TtC11DatadogObjc32DDRUMViewEventRUMEventAttributes")]
+	[DisableDefaultCtor]
+	interface DDRUMViewEventRUMEventAttributes
+	{
+	}
+
 	// @interface DDRUMViewEventRUMUser : NSObject
 	[BaseType(typeof(NSObject), Name = "_TtC11DatadogObjc21DDRUMViewEventRUMUser")]
 	[DisableDefaultCtor]
@@ -1437,87 +1571,115 @@ namespace Datadog
 	interface DDRUMViewEventView
 	{
 		// @property (readonly, nonatomic, strong) DDRUMViewEventViewAction * _Nonnull action;
-		[Export("action", ArgumentSemantic.Strong)]
+		[Export ("action", ArgumentSemantic.Strong)]
 		DDRUMViewEventViewAction Action { get; }
 
+		// @property (readonly, nonatomic, strong) NSNumber * _Nullable cpuTicksCount;
+		[NullAllowed, Export ("cpuTicksCount", ArgumentSemantic.Strong)]
+		NSNumber CpuTicksCount { get; }
+
+		// @property (readonly, nonatomic, strong) NSNumber * _Nullable cpuTicksPerSecond;
+		[NullAllowed, Export ("cpuTicksPerSecond", ArgumentSemantic.Strong)]
+		NSNumber CpuTicksPerSecond { get; }
+
 		// @property (readonly, nonatomic, strong) DDRUMViewEventViewCrash * _Nullable crash;
-		[NullAllowed, Export("crash", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("crash", ArgumentSemantic.Strong)]
 		DDRUMViewEventViewCrash Crash { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable cumulativeLayoutShift;
-		[NullAllowed, Export("cumulativeLayoutShift", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("cumulativeLayoutShift", ArgumentSemantic.Strong)]
 		NSNumber CumulativeLayoutShift { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable domComplete;
-		[NullAllowed, Export("domComplete", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("domComplete", ArgumentSemantic.Strong)]
 		NSNumber DomComplete { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable domContentLoaded;
-		[NullAllowed, Export("domContentLoaded", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("domContentLoaded", ArgumentSemantic.Strong)]
 		NSNumber DomContentLoaded { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable domInteractive;
-		[NullAllowed, Export("domInteractive", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("domInteractive", ArgumentSemantic.Strong)]
 		NSNumber DomInteractive { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMViewEventViewError * _Nonnull error;
-		[Export("error", ArgumentSemantic.Strong)]
+		[Export ("error", ArgumentSemantic.Strong)]
 		DDRUMViewEventViewError Error { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable firstContentfulPaint;
-		[NullAllowed, Export("firstContentfulPaint", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("firstContentfulPaint", ArgumentSemantic.Strong)]
 		NSNumber FirstContentfulPaint { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable firstInputDelay;
-		[NullAllowed, Export("firstInputDelay", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("firstInputDelay", ArgumentSemantic.Strong)]
 		NSNumber FirstInputDelay { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable firstInputTime;
-		[NullAllowed, Export("firstInputTime", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("firstInputTime", ArgumentSemantic.Strong)]
 		NSNumber FirstInputTime { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull id;
-		[Export("id")]
+		[Export ("id")]
 		string Id { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable isActive;
-		[NullAllowed, Export("isActive", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("isActive", ArgumentSemantic.Strong)]
 		NSNumber IsActive { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable largestContentfulPaint;
-		[NullAllowed, Export("largestContentfulPaint", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("largestContentfulPaint", ArgumentSemantic.Strong)]
 		NSNumber LargestContentfulPaint { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable loadEvent;
-		[NullAllowed, Export("loadEvent", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("loadEvent", ArgumentSemantic.Strong)]
 		NSNumber LoadEvent { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable loadingTime;
-		[NullAllowed, Export("loadingTime", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("loadingTime", ArgumentSemantic.Strong)]
 		NSNumber LoadingTime { get; }
 
 		// @property (readonly, nonatomic) enum DDRUMViewEventViewLoadingType loadingType;
-		[Export("loadingType")]
+		[Export ("loadingType")]
 		DDRUMViewEventViewLoadingType LoadingType { get; }
 
 		// @property (readonly, nonatomic, strong) DDRUMViewEventViewLongTask * _Nullable longTask;
-		[NullAllowed, Export("longTask", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("longTask", ArgumentSemantic.Strong)]
 		DDRUMViewEventViewLongTask LongTask { get; }
 
+		// @property (readonly, nonatomic, strong) NSNumber * _Nullable memoryAverage;
+		[NullAllowed, Export ("memoryAverage", ArgumentSemantic.Strong)]
+		NSNumber MemoryAverage { get; }
+
+		// @property (readonly, nonatomic, strong) NSNumber * _Nullable memoryMax;
+		[NullAllowed, Export ("memoryMax", ArgumentSemantic.Strong)]
+		NSNumber MemoryMax { get; }
+
+		// @property (copy, nonatomic) NSString * _Nullable name;
+		[NullAllowed, Export ("name")]
+		string Name { get; set; }
+
 		// @property (copy, nonatomic) NSString * _Nullable referrer;
-		[NullAllowed, Export("referrer")]
+		[NullAllowed, Export ("referrer")]
 		string Referrer { get; set; }
 
+		// @property (readonly, nonatomic, strong) NSNumber * _Nullable refreshRateAverage;
+		[NullAllowed, Export ("refreshRateAverage", ArgumentSemantic.Strong)]
+		NSNumber RefreshRateAverage { get; }
+
+		// @property (readonly, nonatomic, strong) NSNumber * _Nullable refreshRateMin;
+		[NullAllowed, Export ("refreshRateMin", ArgumentSemantic.Strong)]
+		NSNumber RefreshRateMin { get; }
+
 		// @property (readonly, nonatomic, strong) DDRUMViewEventViewResource * _Nonnull resource;
-		[Export("resource", ArgumentSemantic.Strong)]
+		[Export ("resource", ArgumentSemantic.Strong)]
 		DDRUMViewEventViewResource Resource { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nonnull timeSpent;
-		[Export("timeSpent", ArgumentSemantic.Strong)]
+		[Export ("timeSpent", ArgumentSemantic.Strong)]
 		NSNumber TimeSpent { get; }
 
 		// @property (copy, nonatomic) NSString * _Nonnull url;
-		[Export("url")]
+		[Export ("url")]
 		string Url { get; set; }
 	}
 
@@ -1549,6 +1711,20 @@ namespace Datadog
 		// @property (readonly, nonatomic, strong) NSNumber * _Nonnull count;
 		[Export("count", ArgumentSemantic.Strong)]
 		NSNumber Count { get; }
+	}
+
+	// @interface DDRUMViewEventViewInForegroundPeriods : NSObject
+	[BaseType(typeof(NSObject), Name = "_TtC11DatadogObjc37DDRUMViewEventViewInForegroundPeriods")]
+	[DisableDefaultCtor]
+	interface DDRUMViewEventViewInForegroundPeriods
+	{
+		// @property (readonly, nonatomic, strong) NSNumber * _Nonnull duration;
+		[Export ("duration", ArgumentSemantic.Strong)]
+		NSNumber Duration { get; }
+
+		// @property (readonly, nonatomic, strong) NSNumber * _Nonnull start;
+		[Export ("start", ArgumentSemantic.Strong)]
+		NSNumber Start { get; }
 	}
 
 	// @interface DDRUMViewEventViewLongTask : NSObject
@@ -1677,25 +1853,45 @@ namespace Datadog
 	[DisableDefaultCtor]
 	interface DDTracesEndpoint
 	{
+		// +(DDTracesEndpoint * _Nonnull)us1 __attribute__((warn_unused_result));
+		[Static]
+		[Export ("us1")]
+		DDTracesEndpoint Us1 { get; }
+
+		// +(DDTracesEndpoint * _Nonnull)us3 __attribute__((warn_unused_result));
+		[Static]
+		[Export ("us3")]
+		DDTracesEndpoint Us3 { get; }
+
+		// +(DDTracesEndpoint * _Nonnull)eu1 __attribute__((warn_unused_result));
+		[Static]
+		[Export ("eu1")]
+		DDTracesEndpoint Eu1 { get; }
+
+		// +(DDTracesEndpoint * _Nonnull)us1_fed __attribute__((warn_unused_result));
+		[Static]
+		[Export ("us1_fed")]
+		DDTracesEndpoint Us1_fed { get; }
+
 		// +(DDTracesEndpoint * _Nonnull)eu __attribute__((warn_unused_result));
 		[Static]
-		[Export("eu")]
+		[Export ("eu")]
 		DDTracesEndpoint Eu { get; }
 
 		// +(DDTracesEndpoint * _Nonnull)us __attribute__((warn_unused_result));
 		[Static]
-		[Export("us")]
+		[Export ("us")]
 		DDTracesEndpoint Us { get; }
 
 		// +(DDTracesEndpoint * _Nonnull)gov __attribute__((warn_unused_result));
 		[Static]
-		[Export("gov")]
+		[Export ("gov")]
 		DDTracesEndpoint Gov { get; }
 
 		// +(DDTracesEndpoint * _Nonnull)customWithUrl:(NSString * _Nonnull)url __attribute__((warn_unused_result));
 		[Static]
-		[Export("customWithUrl:")]
-		DDTracesEndpoint CustomWithUrl(string url);
+		[Export ("customWithUrl:")]
+		DDTracesEndpoint CustomWithUrl (string url);
 	}
 
 	// @interface DDTrackingConsent : NSObject
@@ -1717,6 +1913,18 @@ namespace Datadog
 		[Static]
 		[Export("pending")]
 		DDTrackingConsent Pending { get; }
+	}
+
+	// @protocol DDUIKitRUMUserActionsPredicate
+	[BaseType(typeof(NSObject), Name = "_TtP11DatadogObjc30DDUIKitRUMUserActionsPredicate_")]
+	[Protocol, Model]
+	interface DDUIKitRUMUserActionsPredicate
+	{
+		// @required -(DDRUMAction * _Nullable)rumActionWithTargetView:(UIView * _Nonnull)targetView __attribute__((warn_unused_result));
+		[Abstract]
+		[Export ("rumActionWithTargetView:")]
+		[return: NullAllowed]
+		DDRUMAction RumActionWithTargetView (UIView targetView);
 	}
 
 	// @protocol DDUIKitRUMViewsPredicate

@@ -6,91 +6,87 @@
 	<dict>
 		<key>Headers/Kronos-Swift.h</key>
 		<data>
-		fjQwsvF3benbVqEdnHu9eT+U0Dc=
-		</data>
-		<key>Headers/Kronos-umbrella.h</key>
-		<data>
-		YnrxVJ+wfilZPX1JhC6PByjNzls=
+		24ut6Rvyl9T9EDUz0TLc2DmcnZo=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		K6PvsH/Z6WEtSy1IW3UZiEI3MHE=
+		z860Jh16xMjOGeRD4YzrWVWpcWg=
 		</data>
 		<key>Modules/Kronos.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		ow4d60cEqj/jEk2wKDazJLDH90s=
+		oCwBQIg+cdIzRfHP98E5JQe3f98=
 		</data>
 		<key>Modules/Kronos.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		ow4d60cEqj/jEk2wKDazJLDH90s=
+		oCwBQIg+cdIzRfHP98E5JQe3f98=
 		</data>
 		<key>Modules/Kronos.swiftmodule/Project/i386-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		5wHqOHqupHcP25OXL0JkXGLcHo0=
+		ugQl5M2SkJZDwYFcgwn6OP2jnJ0=
 		</data>
 		<key>Modules/Kronos.swiftmodule/Project/i386.swiftsourceinfo</key>
 		<data>
-		5wHqOHqupHcP25OXL0JkXGLcHo0=
+		ugQl5M2SkJZDwYFcgwn6OP2jnJ0=
 		</data>
 		<key>Modules/Kronos.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		czCkYQKHDANTGL5yVCrHe9Hp3Co=
+		Yds96QavM86Jl1EIJSimqB/zpmc=
 		</data>
 		<key>Modules/Kronos.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		czCkYQKHDANTGL5yVCrHe9Hp3Co=
+		Yds96QavM86Jl1EIJSimqB/zpmc=
 		</data>
 		<key>Modules/Kronos.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Bbe732afmPThUgZSUbBF9nIvvJ4=
+		gZGjgDHJ6Hz2iVBnETuuz9lmg9A=
 		</data>
 		<key>Modules/Kronos.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		WbrFdhMsjlKT6UE1qJehBE8wmnw=
+		VwsbvoCS8Ox6eiDZ14K1KrhPalE=
 		</data>
 		<key>Modules/Kronos.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		Bbe732afmPThUgZSUbBF9nIvvJ4=
+		gZGjgDHJ6Hz2iVBnETuuz9lmg9A=
 		</data>
 		<key>Modules/Kronos.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		WbrFdhMsjlKT6UE1qJehBE8wmnw=
+		VwsbvoCS8Ox6eiDZ14K1KrhPalE=
 		</data>
 		<key>Modules/Kronos.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<data>
-		GfboG6djWcqFsyGddDx5rSLg644=
+		x+mWUoKuALfccvD7DbgSeBlqHfM=
 		</data>
 		<key>Modules/Kronos.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<data>
-		c3jziyBlU1hvdSN5iD/SWpXCWAs=
+		tAfkM7ThACTTeHUFlvVIwUpg68Q=
 		</data>
 		<key>Modules/Kronos.swiftmodule/i386.swiftdoc</key>
 		<data>
-		GfboG6djWcqFsyGddDx5rSLg644=
+		x+mWUoKuALfccvD7DbgSeBlqHfM=
 		</data>
 		<key>Modules/Kronos.swiftmodule/i386.swiftmodule</key>
 		<data>
-		c3jziyBlU1hvdSN5iD/SWpXCWAs=
+		tAfkM7ThACTTeHUFlvVIwUpg68Q=
 		</data>
 		<key>Modules/Kronos.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		sTRlcbU/GFixzb6sM667ep0I1AU=
+		wQSX0LhcwF3g5Qu9qQOATHJ/9BI=
 		</data>
 		<key>Modules/Kronos.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		H9LJBDikbS2a322Cpvxk/w93d5A=
+		rSeE527FbIX9g2EvaYjUjbaiRc4=
 		</data>
 		<key>Modules/Kronos.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		sTRlcbU/GFixzb6sM667ep0I1AU=
+		wQSX0LhcwF3g5Qu9qQOATHJ/9BI=
 		</data>
 		<key>Modules/Kronos.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		H9LJBDikbS2a322Cpvxk/w93d5A=
+		rSeE527FbIX9g2EvaYjUjbaiRc4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		+QD38M4sJjg2xTeUT7xAlFLOjMU=
+		pBuBDf3QUvWx8BI3gFxwGwKxaEA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -99,231 +95,220 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fjQwsvF3benbVqEdnHu9eT+U0Dc=
+			24ut6Rvyl9T9EDUz0TLc2DmcnZo=
 			</data>
 			<key>hash2</key>
 			<data>
-			Y/FncmnNL7Cm1iS7E3rzPrCDkVwADAbKQH461xgu2YI=
-			</data>
-		</dict>
-		<key>Headers/Kronos-umbrella.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YnrxVJ+wfilZPX1JhC6PByjNzls=
-			</data>
-			<key>hash2</key>
-			<data>
-			y7zOyxBQGVrYjrE3rm4/BC4yi3T9vZWZ1fTXy8/CnyY=
+			c8Mo676Ca3ZZ6hHFXoeI8RQzWvo/gUP94S+ICcXUKu4=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ow4d60cEqj/jEk2wKDazJLDH90s=
+			oCwBQIg+cdIzRfHP98E5JQe3f98=
 			</data>
 			<key>hash2</key>
 			<data>
-			vCcPwCQb9Npld1jdP94GL7+Tmc6G8EXLr8jV+2P3ZtY=
+			T3ATH5OZoWds+iF6a9IQG3FrrMINGVu17MrBtE2lPoM=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ow4d60cEqj/jEk2wKDazJLDH90s=
+			oCwBQIg+cdIzRfHP98E5JQe3f98=
 			</data>
 			<key>hash2</key>
 			<data>
-			vCcPwCQb9Npld1jdP94GL7+Tmc6G8EXLr8jV+2P3ZtY=
+			T3ATH5OZoWds+iF6a9IQG3FrrMINGVu17MrBtE2lPoM=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/Project/i386-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5wHqOHqupHcP25OXL0JkXGLcHo0=
+			ugQl5M2SkJZDwYFcgwn6OP2jnJ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			tMbJTtlt6iYq7m6Vrd9fmvzV/6xyopIF2R892GZyvP4=
+			kkBRXv7w+Rwor5RRGY381TZi4bCLSPm67C+saquxmHI=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/Project/i386.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5wHqOHqupHcP25OXL0JkXGLcHo0=
+			ugQl5M2SkJZDwYFcgwn6OP2jnJ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			tMbJTtlt6iYq7m6Vrd9fmvzV/6xyopIF2R892GZyvP4=
+			kkBRXv7w+Rwor5RRGY381TZi4bCLSPm67C+saquxmHI=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			czCkYQKHDANTGL5yVCrHe9Hp3Co=
+			Yds96QavM86Jl1EIJSimqB/zpmc=
 			</data>
 			<key>hash2</key>
 			<data>
-			sO1v3nkgJSU/je475y9muo9+RMNXlbfrPpKKZFidQpw=
+			8j1xQYD2C/kMVV9CQG7a8worLLDJGX0MZrt62xhZMbc=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			czCkYQKHDANTGL5yVCrHe9Hp3Co=
+			Yds96QavM86Jl1EIJSimqB/zpmc=
 			</data>
 			<key>hash2</key>
 			<data>
-			sO1v3nkgJSU/je475y9muo9+RMNXlbfrPpKKZFidQpw=
+			8j1xQYD2C/kMVV9CQG7a8worLLDJGX0MZrt62xhZMbc=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Bbe732afmPThUgZSUbBF9nIvvJ4=
+			gZGjgDHJ6Hz2iVBnETuuz9lmg9A=
 			</data>
 			<key>hash2</key>
 			<data>
-			QPEQg/rYaJvxgXINMtQpRqW4yvmf5AHmoqWsjS4q/tg=
+			QuKYlOzD2uvr8KLl1NZq0A18aFXdVLhxf9t/DpUoE6Y=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WbrFdhMsjlKT6UE1qJehBE8wmnw=
+			VwsbvoCS8Ox6eiDZ14K1KrhPalE=
 			</data>
 			<key>hash2</key>
 			<data>
-			I6dPAU/RmF3BW/Nj6ohuDLogD1iJQVRcA7z9O5CYN+E=
+			fKGd3VTeq3Yy5I8Uqx2M6l5hlEPtLn+IAY1lhTzO7Rs=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Bbe732afmPThUgZSUbBF9nIvvJ4=
+			gZGjgDHJ6Hz2iVBnETuuz9lmg9A=
 			</data>
 			<key>hash2</key>
 			<data>
-			QPEQg/rYaJvxgXINMtQpRqW4yvmf5AHmoqWsjS4q/tg=
+			QuKYlOzD2uvr8KLl1NZq0A18aFXdVLhxf9t/DpUoE6Y=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WbrFdhMsjlKT6UE1qJehBE8wmnw=
+			VwsbvoCS8Ox6eiDZ14K1KrhPalE=
 			</data>
 			<key>hash2</key>
 			<data>
-			I6dPAU/RmF3BW/Nj6ohuDLogD1iJQVRcA7z9O5CYN+E=
+			fKGd3VTeq3Yy5I8Uqx2M6l5hlEPtLn+IAY1lhTzO7Rs=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GfboG6djWcqFsyGddDx5rSLg644=
+			x+mWUoKuALfccvD7DbgSeBlqHfM=
 			</data>
 			<key>hash2</key>
 			<data>
-			zTjI6cGCAEZLGzEt1rlPKcm2+Gty/PhRCdSgqg+GMSo=
+			nD0+ZP1kN0qk/LAYd813fbGmC7eEOokWOQnJ09K6D3Y=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			c3jziyBlU1hvdSN5iD/SWpXCWAs=
+			tAfkM7ThACTTeHUFlvVIwUpg68Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			jyBsTiuG5TqLCMzst5z7Jtc7iUIce3lSTx+qKygXwC8=
+			7/b9aszXFaD11O3X7QcB4/t0nnvGDDE+3DcKZQ1W7Jg=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/i386.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GfboG6djWcqFsyGddDx5rSLg644=
+			x+mWUoKuALfccvD7DbgSeBlqHfM=
 			</data>
 			<key>hash2</key>
 			<data>
-			zTjI6cGCAEZLGzEt1rlPKcm2+Gty/PhRCdSgqg+GMSo=
+			nD0+ZP1kN0qk/LAYd813fbGmC7eEOokWOQnJ09K6D3Y=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			c3jziyBlU1hvdSN5iD/SWpXCWAs=
+			tAfkM7ThACTTeHUFlvVIwUpg68Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			jyBsTiuG5TqLCMzst5z7Jtc7iUIce3lSTx+qKygXwC8=
+			7/b9aszXFaD11O3X7QcB4/t0nnvGDDE+3DcKZQ1W7Jg=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sTRlcbU/GFixzb6sM667ep0I1AU=
+			wQSX0LhcwF3g5Qu9qQOATHJ/9BI=
 			</data>
 			<key>hash2</key>
 			<data>
-			LLHRy03TqqPrcng/gMiTr5AWWenaocbuSce8wU4O8nY=
+			NqrtQNuB1tuOL0IusAj7opmQex5oC3eW8d4WGu5eVps=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			H9LJBDikbS2a322Cpvxk/w93d5A=
+			rSeE527FbIX9g2EvaYjUjbaiRc4=
 			</data>
 			<key>hash2</key>
 			<data>
-			NYUGi2Q8CIgs4Md52ZVTC4RPTERHfScbopwj6zUyDKc=
+			eFH9xQZJfS8jjvKj0QW9MINT3i4HMo3wUGy7E3tGLDo=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sTRlcbU/GFixzb6sM667ep0I1AU=
+			wQSX0LhcwF3g5Qu9qQOATHJ/9BI=
 			</data>
 			<key>hash2</key>
 			<data>
-			LLHRy03TqqPrcng/gMiTr5AWWenaocbuSce8wU4O8nY=
+			NqrtQNuB1tuOL0IusAj7opmQex5oC3eW8d4WGu5eVps=
 			</data>
 		</dict>
 		<key>Modules/Kronos.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			H9LJBDikbS2a322Cpvxk/w93d5A=
+			rSeE527FbIX9g2EvaYjUjbaiRc4=
 			</data>
 			<key>hash2</key>
 			<data>
-			NYUGi2Q8CIgs4Md52ZVTC4RPTERHfScbopwj6zUyDKc=
+			eFH9xQZJfS8jjvKj0QW9MINT3i4HMo3wUGy7E3tGLDo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+QD38M4sJjg2xTeUT7xAlFLOjMU=
+			pBuBDf3QUvWx8BI3gFxwGwKxaEA=
 			</data>
 			<key>hash2</key>
 			<data>
-			Kvj1VlfLyMJFodG3WWPKOhr1OVcNRcGZZwK4k1VgDF4=
+			EN/VDars5KdFvStRkCLMDt0HCV0xnQzEXcRSteZYo/I=
 			</data>
 		</dict>
 	</dict>
